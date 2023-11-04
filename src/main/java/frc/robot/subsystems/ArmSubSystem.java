@@ -6,7 +6,7 @@ import com.revrobotics.CANSparkMaxLowLevel.MotorType;
 public class ArmSubSystem extends SubsystemBase{
     private final CANSparkMax motor1;
     private final CANSparkMax  motor2;
-    private ArmSubSystem() {
+    public ArmSubSystem() {
         this.motor1 = new CANSparkMax(PortConstants.PORT_1, MotorType.kBrushless);
         this.motor2 = new CANSparkMax(PortConstants.PORT_2, MotorType.kBrushless);
 
@@ -22,4 +22,8 @@ public class ArmSubSystem extends SubsystemBase{
         this.motor2.set(speed2);
 
     }
+    public void stopAllMotorSpeed(){
+        bothmotorspeed(0.0, 0.0);
+    }
+    
 }
